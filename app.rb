@@ -5,15 +5,23 @@ get '/' do
 end
 
 
-post '/sand_results' do
+post '/piz_results' do
+	size = params[:size].to_s
+	crust = params[:crust].to_s
 	topping = params[:topping].to_s
-	erb :sand_results
-	redirect '/confirmation?topping=' + topping
+	veg = params[:veg].to_s
+	addr = params[:addr]
+	erb :piz_results
+	redirect '/confirmation?size=' + size + '&crust=' + crust + '&topping=' + topping + '&veg=' + veg + '&addr=' + addr
 end	
 
 get '/confirmation' do
+	size = params[:size].split
+	crust = params[:crust].split
 	topping = params[:topping].split
-	erb :confirmation, :locals => {:topping=>topping}
+	veg = params[:veg].split
+	addr = params[:addr]
+	erb :confirmation, :locals => {:size=>size, :crust=>crust, :topping=>topping, :veg=>veg, :addr=>addr}
 end	
 
 post '/resultsroute' do

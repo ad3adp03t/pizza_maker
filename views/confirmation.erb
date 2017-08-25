@@ -1,9 +1,30 @@
 <center> 
 <form method = "post" action = "/resultsroute">
+<h3> Please check to make sure this is correct </h3>
+<%size.each do |x|%>
+<p>  A <%=x%> Pizza </p>
+<p> <input type="radio" value=<%=x%> name= 'x[]'> yes </p>
+<p> <input type="radio" value=<%=x%> name= 'size[]'>  no </p>
+<%end%>
 <%crust.each do |x|%>
-<p> Crust type: <%=x%> </p>
-<p> <input type="radio" value=<%=x%> name= 'crust[]'> yes </p>
+<p> with <%=x%> crust</p>
+<p> <input type="radio" value=<%=x%> name= 'x[]'> yes </p>
 <p> <input type="radio" value=<%=x%> name= 'crust[]'>  no </p>
+<%end%>
+<%topping.each do |x|%>
+<p> with <%=x%> as your meats </p>
+<p> <input type="radio" value=<%=x%> name= 'y[]'> yes </p>
+<p> <input type="radio" value=<%=x%> name= 'topping[]'>  no </p>
+<%end%>
+<%veg.each do |x|%>
+<p> And<%=x%> as your veggies </p>
+<p> <input type="radio" value=<%=x%> name= 'y[]'> yes </p>
+<p> <input type="radio" value=<%=x%> name= 'veg[]'>  no </p>
+<%end%>
+<%addr.each do |x|%>
+<p> Being delivered to: <%=x%> </p>
+<p> <input type="radio" value=<%=x%> name= 'y[]'> yes </p>
+<p> <input type="radio" value=<%=x%> name= 'addr[]'>  no </p>
 <%end%>
 <center><input type='submit'></center>
 </form>

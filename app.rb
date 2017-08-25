@@ -26,7 +26,7 @@ post '/resultsroute' do
 end
 
 get '/results' do
-	topping = params[:topping].split
+	topping = params[:topping]
 	erb :results, :locals => {:topping=>topping}
 end	
 

@@ -10,7 +10,7 @@ post '/piz_results' do
 	session[:size] = params[:size]
 	session[:crust] = params[:crust]
 	session[:topping] = params[:topping]
-	session[:veg] = params[:veg].
+	session[:veg] = params[:veg]
 	session[:addr] = params[:addr]
 	redirect '/confirmation'
 end	
@@ -20,7 +20,7 @@ get '/confirmation' do
 end	
 
 post '/resultsroute' do
-	topping = params[:topping].to_s
+	topping = params[:topping]
 	erb :resultsroute
 	redirect '/results?topping=' + topping
 end

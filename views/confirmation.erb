@@ -1,0 +1,10 @@
+<center> 
+<form method = "post" action = "/resultsroute">
+<%crust.each do |x|%>
+<p> Crust type: <%=x%> </p>
+<p> <input type="radio" value=<%=x%> name= 'crust[]'> yes </p>
+<p> <input type="radio" value=<%=x%> name= 'crust[]'>  no </p>
+<%end%>
+<center><input type='submit'></center>
+</form>
+</center>

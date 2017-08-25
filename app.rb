@@ -1,4 +1,5 @@
 require "sinatra"
+enable :sessions
 
 get '/' do
   erb :pizza
@@ -6,22 +7,16 @@ end
 
 
 post '/piz_results' do
-	size = params[:size].to_s
-	crust = params[:crust].to_s
-	topping = params[:topping].to_s
-	veg = params[:veg].to_s
-	addr = params[:addr]
-	erb :piz_results
-	redirect '/confirmation?size=' + size + '&crust=' + crust + '&topping=' + topping + '&veg=' + veg + '&addr=' + addr
+	session[:size] = params[:size]
+	session[:crust] = params[:crust]
+	session[:topping] = params[:topping]
+	session[:veg] = params[:veg].
+	session[:addr] = params[:addr]
+	redirect '/confirmation'
 end	
 
 get '/confirmation' do
-	size = params[:size].split
-	crust = params[:crust].split
-	topping = params[:topping].split
-	veg = params[:veg].split
-	addr = params[:addr]
-	erb :confirmation, :locals => {:size=>size, :crust=>crust, :topping=>topping, :veg=>veg, :addr=>addr}
+	erb :confirmation, locals:{size: session[:size], crust: session[:crust], topping: session[:topping], veg: session[:veg], addr: [:addr]}
 end	
 
 post '/resultsroute' do

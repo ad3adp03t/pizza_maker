@@ -1,33 +1,49 @@
 <center> 
-<form method = "post" action = "/resultsroute">
 <h3> Please check to make sure this is correct </h3>
+<%count=0%>
 <%size.each do |x|%>
+<form method = "post" action = "/resultsroute"> 
 <p>  A <%=x%> Pizza </p>
-<p> <input type="radio" value=<%=x%> name= 'size[]' checked> yes </p>
+<p> <input type="radio" value=<%=x%> name= 'size[]'> yes </p>
 <p> <input type="radio" value=no name= 'no[]'>  no </p>
+<%count+=1%>
+</form>
 <%end%>
+<%count=0%>
 <%crust.each do |x|%>
+<form method = "post" action = "/resultsroute">
 <p> with <%=x%> crust</p>
-<p> <input type="radio" value=<%=x%> name= 'crust[]' checked> yes </p>
+<p> <input type="radio" value=<%=x%> name= 'crust[]' > yes </p>
 <p> <input type="radio" value=no name= 'no[]'>  no </p>
+<%count+=1%>
+</form>
 <%end%>
+<%count=0%>
 <%topping.each do |x|%>
+<form method = "post" action = "/resultsroute">
 <p> with <%=x%> as your meats </p>
 <img src = "./img/<%=x%>.jpeg">
-<p> <input type="radio" value=<%=x%> name= 'topping[]' checked> yes </p>
+<p> <input type="radio" value="<%=x%>" name= 'topping[]' > yes </p>
 <p> <input type="radio" value=no name= 'no[]'>  no </p>
+<%count+=1%>
+</form>
 <%end%>
+<%count=0%>
 <%veg.each do |x|%>
+<form method = "post" action = "/resultsroute">
 <p> And <%=x%> </p>
 <img src = "./img/<%=x%>.jpeg">
-<p> <input type="radio" value=<%=x%> name= 'veg[]' checked> yes </p>
+<p> <input type="radio" value="<%x%>" name= 'veg[]' > yes </p>
 <p> <input type="radio" value=no name= 'no[]'>  no </p>
+<%count+=1%>
+</form>
 <%end%>
 <%addr.each do |x|%>
+<form method = "post" action = "/resultsroute">
 <p> Being delivered to: <%=x%> </p>
-<p> <input type="radio" value=<%=x%> name= 'addr[]' checked> yes </p>
+<p> <input type="radio" value=<%x%> name= 'addr[]' > yes </p>
 <p> <input type="radio" value=no name= 'no[]'>  no </p>
+</form>
 <%end%>
 <center><input type='submit'></center>
-</form>
 </center>

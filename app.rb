@@ -20,13 +20,11 @@ get '/confirmation' do
 end	
 
 post '/resultsroute' do
-	topping = params[:topping]
-	erb :resultsroute
-	redirect '/results?topping=' + topping
+	redirect '/results'
 end
 
 get '/results' do
-	topping = params[:topping]
-	erb :results, :locals => {:topping=>topping}
+	erb :results, locals:{size: session[:size], crust: session[:crust], topping: session[:topping], veg: session[:veg], addr: [:addr]}
 end	
+
 

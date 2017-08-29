@@ -1,0 +1,22 @@
+<center> 
+<%size.each do |x|%>
+<p>  A <%=x%> Pizza </p>
+<%end%>
+<%crust.each do |x|%>
+<p> with <%=x%> crust </p>
+<%end%>
+With:
+<%topping.each do |x|%>
+<p> <%=x%> </p>
+<%end%>
+As your meats <br/>
+And:
+<p> <%veg.each do |x|%> </p>
+<p> <%=x%> </p>
+<%end%>
+<p> As your veggies </p>
+<%addr.each do |x|%>
+<p> Being delivered too <%=x%> </p>
+<%end%>
+<p> Thank You For Your Business </p>
+</center>
